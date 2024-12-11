@@ -1,16 +1,20 @@
 <?php
 
-class MinhaExceptionCustomizada extends Exception {
+class MinhaExceptionCustomizada extends Exception
+{
 
-    private $erro ='';
-    
+    private $erro = '';
+
     public function __construct($erro)
     {
-        $this->erro=$erro;
+        $this->erro = $erro;
     }
 
-    public function exibirMessagemErroCustomizada(){
-        return $this->erro;
+    public function exibirMessagemErroCustomizada()
+    {
+        echo '<div style="border: solid 1px #000;padding: 15px;background-color:red; color:white">';
+        echo $this->erro;
+        echo '</div>';
     }
 
 }
@@ -18,7 +22,7 @@ class MinhaExceptionCustomizada extends Exception {
 
 
 try {
-    throw new MinhaExceptionCustomizada("Esse é um erro de testes", 1);
+    throw new MinhaExceptionCustomizada("Esse é um erro de testes");
 
 } catch (MinhaExceptionCustomizada $e) {
     //throw $th;
